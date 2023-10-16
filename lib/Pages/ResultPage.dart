@@ -10,11 +10,11 @@ class ResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: SafeArea(
           child: Column(
             children: [
-              Row(
+              const Row(
                 children: [
                   Icon(
                     Icons.arrow_back_ios_new,
@@ -23,7 +23,7 @@ class ResultPage extends StatelessWidget {
                   Text("Back"),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 children: [
                   Text(
@@ -36,8 +36,8 @@ class ResultPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
-              Container(
+              const SizedBox(height: 10),
+              SizedBox(
                 height: 350,
                 child: Expanded(
                   child: CircularPercentIndicator(
@@ -47,14 +47,14 @@ class ResultPage extends StatelessWidget {
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.primary,
                           fontSize: 30,
-                          fontWeight: FontWeight.bold),
+                          fontWeight: FontWeight.bold,),
                     ),
                     radius: 130,
                     lineWidth: 30,
                     animation: true,
                     circularStrokeCap: CircularStrokeCap.round,
                     percent: 0.4,
-                    center: new Text(
+                    center:  Text(
                       "100%",
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.primary,
@@ -67,17 +67,17 @@ class ResultPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.primaryContainer,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 padding: EdgeInsets.all(10),
-                child: Text(
+                child:const Text(
                     "Your BMI is 20.7, indicating your weight is in the Normal category for adults of your height.  For your height, a normal weight range wouldbe from 53.5 to 72 kilograms.Maintaining a healthy weight may reduce the risk of chronic diseases associated with overweight and obesity."),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               MyRactButton(
                 onPress: () {
                   Get.back();

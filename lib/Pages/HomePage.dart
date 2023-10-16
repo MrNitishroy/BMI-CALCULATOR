@@ -5,7 +5,6 @@ import 'package:bmi_cal/Components/RactButton.dart';
 import 'package:bmi_cal/Components/ThemeChangeBtn.dart';
 import 'package:bmi_cal/Components/WeightSelector.dart';
 import 'package:bmi_cal/Controllers/BMIController.dart';
-import 'package:bmi_cal/Controllers/ThemeController.dart';
 import 'package:bmi_cal/Pages/ResultPage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,7 +14,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeController themeController = Get.put(ThemeController());
     BMIConroller bmiConroller = Get.put(BMIConroller());
     return Scaffold(
       body: SafeArea(
@@ -23,7 +21,7 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           child: Column(
             children: [
-              ThemeChangeBtn(),
+              const ThemeChangeBtn(),
               Row(
                 children: [
                   Text(
@@ -46,7 +44,7 @@ class HomePage extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 children: [
                   PrimaryButton(
@@ -56,7 +54,7 @@ class HomePage extends StatelessWidget {
                     icon: Icons.male,
                     btnName: "MALE",
                   ),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   PrimaryButton(
                     onPress: () {
                       bmiConroller.genderHandle("FEMALE");
@@ -85,10 +83,10 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               MyRactButton(
                 onPress: () {
-                  Get.to(ResultPage());
+                  Get.to(const ResultPage());
                 },
                 btnName: "LETS GO",
                 icon: Icons.done_all_rounded,
