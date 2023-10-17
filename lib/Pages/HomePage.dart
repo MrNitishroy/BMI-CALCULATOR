@@ -86,6 +86,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 20),
               MyRactButton(
                 onPress: () {
+                  bmiConroller.CalculatBMI();
                   Get.to(const ResultPage());
                 },
                 btnName: "LETS GO",

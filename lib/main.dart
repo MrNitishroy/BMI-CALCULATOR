@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'BMI APP',
+      title: 'BMI CALCULATOR',
       theme: lightTheme,
       darkTheme: darkTheme,
       home: HomePage(),

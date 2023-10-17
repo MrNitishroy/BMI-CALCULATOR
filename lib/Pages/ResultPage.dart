@@ -1,4 +1,5 @@
 import 'package:bmi_cal/Components/RactButton.dart';
+import 'package:bmi_cal/Controllers/BMIController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -8,6 +9,7 @@ class ResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BMIConroller bmiConroller = Get.put(BMIConroller());
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(10),
@@ -26,26 +28,26 @@ class ResultPage extends StatelessWidget {
               const SizedBox(height: 20),
               Row(
                 children: [
-                  Text(
+                 Obx(() =>  Text(
                     "Your BMI is",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 28,
-                      color: Theme.of(context).colorScheme.primary,
+                      color: bmiConroller.colorStattus.value,
                     ),
-                  ),
+                  ),)
                 ],
               ),
               const SizedBox(height: 10),
               SizedBox(
                 height: 350,
                 child: Expanded(
-                  child: CircularPercentIndicator(
+                  child: Obx(() => CircularPercentIndicator(
                     animationDuration: 1000,
                     footer: Text(
-                      "Underweight",
+                      "${bmiConroller.BMIstatus.value}",
                       style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary,
+                          color:  bmiConroller.colorStattus.value,
                           fontSize: 30,
                           fontWeight: FontWeight.bold,),
                     ),
@@ -53,18 +55,19 @@ class ResultPage extends StatelessWidget {
                     lineWidth: 30,
                     animation: true,
                     circularStrokeCap: CircularStrokeCap.round,
-                    percent: 0.4,
+                    percent: bmiConroller.tempBMI.value /100,
+                  
                     center:  Text(
-                      "100%",
+                      "${bmiConroller.BMI.value}%",
                       style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary,
+                          color:  bmiConroller.colorStattus.value,
                           fontSize: 60,
                           fontWeight: FontWeight.bold),
                     ),
-                    progressColor: Theme.of(context).colorScheme.primary,
+                    progressColor: bmiConroller.colorStattus.value,
                     backgroundColor:
-                        Theme.of(context).colorScheme.primary.withOpacity(0.2),
-                  ),
+                         bmiConroller.colorStattus.value.withOpacity(0.2),
+                  ),)
                 ),
               ),
               const SizedBox(height: 20),
